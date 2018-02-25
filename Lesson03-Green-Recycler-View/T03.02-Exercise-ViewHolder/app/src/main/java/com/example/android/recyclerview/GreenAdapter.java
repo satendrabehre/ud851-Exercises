@@ -35,7 +35,7 @@ import android.widget.TextView;
  * If you don't like our puns, we named this Adapter GreenAdapter because its
  * contents are green.
  */
-public class GreenAdapter extends RecyclerView.Adapter<NumberViewHolder> {
+public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHolder> {
 
     // TODO (1) Create a layout resource in res/layout/ called number_list_item.xml
 
@@ -127,6 +127,21 @@ public class GreenAdapter extends RecyclerView.Adapter<NumberViewHolder> {
     // TODO (16) Within the NumberViewHolder class, create a void method called bind that accepts an int parameter called listIndex
     // TODO (17) Within bind, set the text of listItemNumberView to the listIndex
     // TODO (18) Be careful to get the String representation of listIndex, as using setText with an int does something different
+
+
+    public class NumberViewHolder extends RecyclerView.ViewHolder {
+
+        TextView listItemNumberView;
+
+        public NumberViewHolder(View itemView) {
+            super(itemView);
+
+            listItemNumberView = (TextView) itemView.findViewById(R.id.tv_item_number);
+        }
+
+        public void bind(int listIndex) {
+            listItemNumberView.setText(String.valueOf(listIndex));
+        }
 
     }
 }
